@@ -6,7 +6,7 @@ Our client is an online marketplace, here is a sample of some of the products av
 Product code  | Name                   | Price
 ----------------------------------------------------------
 001           | Lavender heart         | £9.25
-002           | Personalised cufflinks | £45.00
+002           | Personalized cufflinks | £45.00
 003           | Kids T-shirt           | £19.95
 ```
 
@@ -26,7 +26,7 @@ co.scan(item)
 price = co.total
 ```
 
-Implement a checkout system that fullfills these requirements.
+Implement a checkout system that fulfills these requirements.
 
 ```
 Test data
