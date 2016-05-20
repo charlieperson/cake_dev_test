@@ -12,4 +12,13 @@ class Checkout
   def scan(code)
     basket << products[code]
   end
+
+  def total
+    total = 0
+    basket.each { |item| total += item[:price] }
+    return total
+  end
+
+  private
+  attr_reader :products
 end
