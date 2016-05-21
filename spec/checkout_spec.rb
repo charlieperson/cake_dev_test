@@ -15,4 +15,10 @@ describe Checkout do
     checkout.scan(002)
     expect(checkout.total).to eq 54.25
   end
+
+  it 'deducts 10% from total if they spend over 60' do
+    checkout.scan(002)
+    checkout.scan(002)
+    expect(checkout.total).to eq 81.00
+  end
 end
