@@ -1,4 +1,11 @@
-# Ruby Test
+# Cake Coding Challenge
+### Install and run:
+```
+bundle install
+rake
+```
+# The Task:
+## Ruby Test
 
 Our client is an online marketplace, here is a sample of some of the products available on our site:
 
