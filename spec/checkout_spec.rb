@@ -21,4 +21,10 @@ describe Checkout do
     checkout.scan(002)
     expect(checkout.total).to eq 81.00
   end
+
+  it 'if you buy 2 or more lavender hearts then the price drops to £8.50' do
+    checkout.scan(001)
+    checkout.scan(001)
+    expect(checkout.total).to eq 17
+  end
 end
