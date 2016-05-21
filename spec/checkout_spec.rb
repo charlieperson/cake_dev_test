@@ -3,28 +3,22 @@ require 'checkout'
 
 describe Checkout do
 
-  subject(:checkout) { Checkout.new }
+  let(:promotional_rules) { double(:promotional_rules) }
+  subject(:checkout) { Checkout.new(promotional_rules) }
 
   it 'can add items to a basket' do
     checkout.scan(001)
     expect(checkout.basket).to eq [{:name=>"Lavender heart", :price=>9.25}]
   end
 
+  it 'raises error if item is invalid' do
+    expect{checkout.scan(004)}.to raise_error(InvalidItem)
+  end
+
   it 'can add up the total of a basket' do
+    allow(promotional_rules).to receive(:redeem).and_return(54.25)
     checkout.scan(001)
     checkout.scan(002)
-    expect(checkout.total).to eq 54.25
-  end
-
-  it 'deducts 10% from total if they spend over 60' do
-    checkout.scan(002)
-    checkout.scan(002)
-    expect(checkout.total).to eq 81.00
-  end
-
-  it 'if you buy 2 or more lavender hearts then the price drops to £8.50' do
-    checkout.scan(001)
-    checkout.scan(001)
-    expect(checkout.total).to eq 17
+    expect(checkout.get_total).to eq 54.25
   end
 end
